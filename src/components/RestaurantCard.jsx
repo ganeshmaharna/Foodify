@@ -74,7 +74,7 @@ export const RestaurantCardOffer = (RestaurantCard) => {
     const { isOpen } = resInfo;
     return (
       <>
-        <RestaurantCard {...props} />
+        <RestaurantCard {...props}/>
         {isOpen && (
           <>
             {resInfo?.aggregatedDiscountInfoV2 && (
