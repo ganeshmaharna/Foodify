@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../customhooks/useRestaurantMenu";
-import { IoIosStar } from "react-icons/io";
+import { IoIosStar,IoIosArrowUp,IoIosArrowDown } from "react-icons/io";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -89,6 +90,26 @@ const RestaurantMenu = () => {
           </div>
         )}
       </div>
+      {/* Description Data */}
+      <>
+        <div className="dottedDivider"></div>
+        {/* Restaurant Category */}
+        <ul>
+          {ResMenuInfo?.map((category, index) => (
+            <li key={category?.card?.card?.title}>
+              <div className="flex items-center justify-between cursor-pointer py-5 px-3 sm:p-6 shadow-md text-left">
+                <h2 className="text-customblack-3 sm:text-lg font-ProximaNovaBold">
+                  {category?.card?.card?.title} (
+                  {category?.card?.card?.itemCards?.length})
+                </h2>
+                <div className="text-xl text-customblack-3">
+                  {<IoIosArrowDown/>}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </>
     </div>
   );
 };
