@@ -1,9 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../customhooks/useRestaurantMenu";
-import { IoIosStar,IoIosArrowUp,IoIosArrowDown } from "react-icons/io";
+import RestaurantCategory from "./RestaurantCategory";
+import { IoIosStar } from "react-icons/io";
+import { RES_IMG } from "../utils/constants";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -11,6 +13,14 @@ const RestaurantMenu = () => {
     useRestaurantMenu(resId);
   const { name, city, cuisines, avgRating, totalRatingsString, isOpen } =
     ResInfo;
+  const [showIndex, setShowIndex] = useState(0);
+  const handleShowIndex = (CurrentIndex) => {
+    if (CurrentIndex === showIndex) {
+      setShowIndex(null);
+    } else {
+      setShowIndex(CurrentIndex);
+    }
+  };
 
   return (
     <div className="2xl:w-6/12 mx-auto menu-container pt-28 pb-36 md:w-10/12 w-full px-3 min-h-screen">
@@ -97,15 +107,11 @@ const RestaurantMenu = () => {
         <ul>
           {ResMenuInfo?.map((category, index) => (
             <li key={category?.card?.card?.title}>
-              <div className="flex items-center justify-between cursor-pointer py-5 px-3 sm:p-6 shadow-md text-left">
-                <h2 className="text-customblack-3 sm:text-lg font-ProximaNovaBold">
-                  {category?.card?.card?.title} (
-                  {category?.card?.card?.itemCards?.length})
-                </h2>
-                <div className="text-xl text-customblack-3">
-                  {<IoIosArrowDown/>}
-                </div>
-              </div>
+              <RestaurantCategory
+                data={category?.card?.card}
+                showItems={index === showIndex ? true : false}
+                setShowIndex={() => handleShowIndex(index)}
+              />
             </li>
           ))}
         </ul>

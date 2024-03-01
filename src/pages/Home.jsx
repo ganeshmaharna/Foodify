@@ -182,7 +182,7 @@ const Home = () => {
 
           {FoodCategories && (
             <div className="relative md:block hidden">
-              <h2 className="font-GrotBlack text-xl sm:text-2xl pt-5 pb-5 text-left pl-4">
+              <h2 className="font-GrotBlack text-xl sm:text-2xl lg:ml-4 pt-5 pb-5 text-left pl-4">
                 What's on your mind?
               </h2>
 
@@ -228,7 +228,7 @@ const Home = () => {
                   </svg>
                 </button>
               </div>
-              <div className="foodCategory overflow-hidden scroll-smooth scrollbar-hide 2xl:max-w-[1500px]">
+              <div className="foodCategory overflow-hidden scroll-smooth scrollbar-hide lg:px-4">
                 <div className="flex md:gap-6 px-3 md:px-0">
                   {FoodCategories?.map((category) => (
                     <div key={category?.id} className="cursor-pointer">
@@ -246,12 +246,12 @@ const Home = () => {
             </div>
           )}
 
-          <h2 className="font-GrotBlack text-xl sm:text-2xl pt-10 pb-5 text-center 2xl:text-left">
+          <h2 className="font-GrotBlack text-xl sm:text-2xl pt-10 pb-5 lg:ml-10 text-center 2xl:text-left">
             Restaurants with online food delivery in
           </h2>
 
-          <div className="buttons flex items-center justify-center 2xl:justify-between 2xl:pr-24 mb-5 font-GrotReg xl:flex-row flex-col gap-5 xl:gap-0">
-            <div className="flex items-center gap-3 md:flex-nowrap flex-wrap md:justify-start justify-center">
+          <div className="px-10 buttons flex items-center justify-center 2xl:justify-between 2xl:pr-24 mb-5 font-GrotReg xl:flex-row flex-col gap-5 xl:gap-0">
+            <div className="flex items-center gap-3 md:flex-nowrap flex-wrap justify-center">
               <button
                 className="filterBtn text-sm md:text-[15px]"
                 onClick={handleTopRated}
@@ -301,7 +301,7 @@ const Home = () => {
             </div>
           )}
 
-          <div className="flex flex-wrap items-center gap-10 justify-center 2xl:justify-start">
+          <div className="flex flex-wrap items-center gap-10 justify-center">
             {FilteredRestaurants?.map((res) => (
               <Link
                 key={res?.info?.id}

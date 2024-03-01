@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <>
       <header className="p-3 shadow-lg fixed w-full z-10 bg-white h-[85px]">
-        <nav className="container mx-auto flex items-center justify-between">
+        <nav className="container mx-auto lg:px-4 flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/">
               <img
