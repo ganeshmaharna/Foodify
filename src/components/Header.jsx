@@ -2,10 +2,13 @@
 import React from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import {useSelector } from "react-redux";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const Header = () => {
+  //Subscribing to the store using useSelector
+  const cartItems = useSelector((state) => state.cart.items);
   return (
     <>
       <header className="p-3 shadow-lg fixed w-full z-10 bg-white h-[85px]">
@@ -47,11 +50,10 @@ const Header = () => {
                       <path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path>
                     </svg>
                     <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm font-ProximaNovaSemiBold text-white">
-                      1
+                      {cartItems.length}
                     </span>
                   </span>
                 </>
-
                 <span className="font-ProximaNovaMed text-base">Cart</span>
               </Link>
             </li>
@@ -62,7 +64,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      <div className="h-screen w-full z-[99999] bg-white fixed top-0 -left-full right-0 transition-all duration-500">
+      <div className="h-screen w-full z-[99999] bg-white fixed top-15 -left-full right-0 transition-all duration-500">
         <div className="text-3xl cursor-pointer absolute right-5 top-6">
           <IoMdCloseCircleOutline />
         </div>
