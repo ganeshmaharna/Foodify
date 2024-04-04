@@ -1,4 +1,4 @@
-export const CORSPROXY = "https://corsproxy.org/?";
+export const CORSPROXY = "https://thingproxy.freeboard.io/fetch/";
 
 export const LOCATION_API = `https://www.swiggy.com/dapi/misc/place-autocomplete?input=`;
 

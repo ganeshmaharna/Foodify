@@ -18,7 +18,11 @@ const useRestaurant = () => {
         encodeURIComponent(
           `https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.32351&lng=85.8172637&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
         );
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        headers: {
+          Accept: "application/json",
+        },
+      });
       if (!response.ok) {
         const err = response.status;
         throw new Error(err);

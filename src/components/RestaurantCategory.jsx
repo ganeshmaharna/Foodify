@@ -24,7 +24,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
         </div>
       </div>
       {/* Accordion Body */}
-      {showItems && <RestaurantMenuList items={data?.itemCards} />}
+      {showItems && <RestaurantMenuList items={data?.itemCards} actionType="add"/>}
     </>
   );
 };

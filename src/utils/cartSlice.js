@@ -7,6 +7,13 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
+      //Vanilla Redux => Don't mutate state, Returning was mandatory
+      //const newState = [...state]
+      // newState.items.push(action.payload)
+      // return newState
+
+      //But we have to mutate the state
+      // RTK uses Immer library behind to abstract these Vanilla Redux Complexity
       state.items.push(action.payload);
     },
     removeItem: (state) => {
