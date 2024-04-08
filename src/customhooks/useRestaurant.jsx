@@ -21,6 +21,7 @@ const useRestaurant = () => {
       const response = await fetch(url, {
         headers: {
           Accept: "application/json",
+          Origin: 'https://foodify-psi.vercel.app',
         },
       });
       if (!response.ok) {
