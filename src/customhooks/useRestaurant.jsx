@@ -13,15 +13,11 @@ const useRestaurant = () => {
 
   const fetchRestaurants = async () => {
     try {
-      const url =
-        CORSPROXY +
-        encodeURIComponent(
-          `https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.32351&lng=85.8172637&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
-        );
+      const url = `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.32351&lng=85.8172637&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
       const response = await fetch(url, {
         headers: {
           Accept: "application/json",
-          Origin: 'https://foodify-psi.vercel.app',
+          Origin: "https://foodify-psi.vercel.app",
         },
       });
       if (!response.ok) {
