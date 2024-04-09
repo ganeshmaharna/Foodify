@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { CORSPROXY } from "../utils/constants";
 
 const useRestaurant = () => {
   const [AllRestaurants, setAllRestaurants] = useState([]);
@@ -13,8 +12,8 @@ const useRestaurant = () => {
 
   const fetchRestaurants = async () => {
     try {
-      const url = `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.32351&lng=85.8172637&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
-      const response = await fetch(url, {
+      // const url = `https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.32351&lng=85.8172637&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+      const response = await fetch("https://foodifybackend-i003.onrender.com/fetch-data", {
         headers: {
           Accept: "application/json",
           Origin: "https://foodify-psi.vercel.app",
