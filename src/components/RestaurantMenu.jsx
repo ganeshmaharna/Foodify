@@ -6,6 +6,7 @@ import useRestaurantMenu from "../customhooks/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { IoIosStar } from "react-icons/io";
 import { RES_IMG } from "../utils/constants";
+import ShimmerMenu from "./ShimmerMenu";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -21,6 +22,9 @@ const RestaurantMenu = () => {
       setShowIndex(CurrentIndex);
     }
   };
+  if (ResMenuInfo?.length === 0) {
+    return <ShimmerMenu />;
+  }
 
   return (
     <div className="2xl:w-6/12 mx-auto menu-container pt-28 pb-36 md:w-10/12 w-full px-3 min-h-screen">
