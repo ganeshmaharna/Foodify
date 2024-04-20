@@ -181,7 +181,7 @@ const Home = () => {
           )}
 
           {FoodCategories && (
-            <div className="relative md:block hidden">
+            <div className="relative md:block">
               <h2 className="font-GrotBlack text-xl sm:text-2xl lg:ml-4 pt-5 pb-5 text-left pl-4">
                 What's on your mind?
               </h2>

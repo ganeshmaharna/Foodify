@@ -8,7 +8,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const Header = () => {
   //Subscribing to the store using useSelector
-  const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.cartItems);
   return (
     <>
       <header className="p-3 shadow-lg fixed w-full z-10 bg-white h-[85px]">

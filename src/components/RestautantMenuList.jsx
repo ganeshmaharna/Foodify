@@ -2,12 +2,21 @@
 import { MENU_IMG } from "../utils/constants";
 import { FaRegCircleDot } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { addItem, removeItem } from "../utils/cartSlice";
 const RestaurantMenuList = ({ items, actionType }) => {
   const dispatch = useDispatch();
-  const handleAddItem = (item) => {
-    dispatch(addItem(item));
-  };
+  const handleAddItem = (item, flag) => {
+    // console.log("This is the item parameter when I click on Add button", item);
+    // console.log("This is actionType", actionType);
+    if (flag === "add") {
+      console.log("This is items in addItem")
+      dispatch(addItem(item));
+    } else {
+      console.log("This is items in removeItem");
+      dispatch(removeItem(item.card.info.id));
+    }
+  };  
+  // const flag = "add";
   return (
     <div className="accordion-body">
       {items?.map((item) => (
@@ -47,8 +56,9 @@ const RestaurantMenuList = ({ items, actionType }) => {
                 />
               </button>
             )}
+            {/* This is the button */}
             <button
-              onClick={() => handleAddItem(item)}
+              onClick={() => handleAddItem(item, actionType)}
               className={`absolute -bottom-2 left-1/2 -translate-x-1/2 z-[1] w-24 h-9 shadow-md shadow-color-7 bg-white text-center inline-block rounded ${
                 actionType === "remove" ? "text-red-600" : "text-green-600"
               } text-sm font-ProximaNovaSemiBold uppercase`}

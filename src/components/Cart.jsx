@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import RestaurantMenuList from "./RestautantMenuList";
 import { clearItem } from "../utils/cartSlice";
 const Cart = () => {
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store) => store.cart.cartItems);
   const dispatch = useDispatch();
   console.log(cartItems);
   const handleClearCart = () => {

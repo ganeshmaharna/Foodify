@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: [],
+    cartItems: [],
   },
   reducers: {
     addItem: (state, action) => {
@@ -14,13 +14,16 @@ const cartSlice = createSlice({
 
       //But we have to mutate the state
       // RTK uses Immer library behind to abstract these Vanilla Redux Complexity
-      state.items.push(action.payload);
+      state.cartItems.push(action.payload);
     },
-    removeItem: (state) => {
-      state.items.pop();
+    removeItem: (state, action) => {
+      const itemIdToRemove = action.payload;
+      state.cartItems = state.cartItems.filter(
+        (item) => item.card.info.id !== itemIdToRemove
+      );
     },
     clearItem: (state) => {
-      state.items.length = 0;
+      state.cartItems.length = 0;
     },
   },
 });
